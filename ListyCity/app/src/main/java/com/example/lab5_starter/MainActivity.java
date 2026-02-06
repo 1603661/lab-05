@@ -95,7 +95,8 @@ public class MainActivity extends AppCompatActivity implements CityDialogFragmen
             if (deleteMode){
                 assert selectedCity != null;
                 String selectedName = selectedCity.getName();
-                citiesRef.document(selectedName).delete();
+                DocumentReference docRef = citiesRef.document(selectedName);
+                docRef.delete();
                 deleteMode = false;
             }else {
                 City city = cityArrayAdapter.getItem(i);
